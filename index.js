@@ -19,8 +19,8 @@ const app = express( )
 app.use(cors())
 
 app.use(express.json())
-mongoose.connect("mongodb://0.0.0.0:27017/store")
-
+mongoose.connect(`mongodb+srv://arthurzhuravetskiy:arthurcodename@store.fnpzjaa.mongodb.net/`)
+// mongodb://0.0.0.0:27017/store
 const port = process.env.PORT || 3001
 
 app.post('/getProducts', cors(),  async (req,res) => {
