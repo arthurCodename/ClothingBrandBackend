@@ -173,7 +173,7 @@ app.post("/forgotPassword", async (req,res) => {
             }).save();
         }
         const link = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
-        await sendEmail(user.userEmail, "Password reset", "Hey Dick Fuck Pussy" + link);
+        await sendEmail(user.userEmail, "Password reset", link);
         
         res.send("password reset link sent to your email account");
     } catch (error) {
