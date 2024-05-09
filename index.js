@@ -172,7 +172,7 @@ app.post("/forgotPassword", async (req,res) => {
                 token: crypto.randomBytes(32).toString("hex"),
             }).save();
         }
-        const link = `https://clothingbrandfrontend.onrender.com/password-reset/${user._id}/${token.token}`;
+        const link = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
         await sendEmail(user.userEmail, "Password reset", link);
         
         res.send("password reset link sent to your email account");
