@@ -28,7 +28,15 @@ const validateReg = (data) => {
         userZip: Joi.string().required().label("Zip Code"),
         userPassword: passwordComplexity().required().label("Password"),
     });
-    return schema.validate(data)
+
+    const options = {
+        errors: {
+          wrap: {
+            label: ''
+          }
+        }
+      };
+    return schema.validate(data, options)
 }
 
 const validateLog = (data) => {
@@ -36,14 +44,30 @@ const validateLog = (data) => {
         userEmail: Joi.string().email().required().label("Email"),
         userPassword: Joi.string().required().label("Password"),
     });
-    return schema.validate(data)
+
+    const options = {
+        errors: {
+          wrap: {
+            label: ''
+          }
+        }
+      };
+    return schema.validate(data, options)
 }
 
 const validateEmail = (data) => {
     const schema = Joi.object({
         userEmail: Joi.string().email().required().label("Email")
     });
-    return schema.validate(data)
+
+    const options = {
+        errors: {
+          wrap: {
+            label: ''
+          }
+        }
+      };
+    return schema.validate(data, options)
 }
 
 
