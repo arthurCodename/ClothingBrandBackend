@@ -236,6 +236,16 @@ app.post("/logUser",  async (req,res) => {
      
 })
 
+app.post("/getProductsByTag", async (req, res) => {
+    const ctgr = req.body.ctgr
+
+    try {
+        const getByTag = await ProductsModel.findOne({category: ctgr})
+        res.status(200).send(getByTag)
+    } catch (error) {
+        console.log(error)
+    }
+})
 app.post("/deletefromCart",async  (req,res) => {
     const id = req.body._id;
     
