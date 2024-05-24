@@ -238,9 +238,10 @@ app.post("/logUser",  async (req,res) => {
 
 app.post("/getProductsByTag", async (req, res) => {
     const ctgr = req.body.ctgr
-
+    console.log(ctgr)
     try {
-        const getByTag = await ProductsModel.findOne({category: ctgr})
+        const getByTag = await ProductsModel.find({category: ctgr})
+        console.log(getByTag)
         res.status(200).send(getByTag)
     } catch (error) {
         console.log(error)
